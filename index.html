@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cloud Expense Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1 class="logo">💰 Cloud Expense Tracker</h1>
+    <div class="nav-links">
+      <a href="#dashboard" class="nav-link active" data-tab="dashboard">Dashboard</a>
+      <a href="#add" class="nav-link" data-tab="add">Add Expense</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="tab-section">
+
+      <div class="card total-card">
+        <h2>Total Expenses</h2>
+        <p id="totalAmount">₹0.00</p>
+      </div>
+
+      <div class="card">
+        <h2>All Expenses</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTableBody">
+              <!-- Rows inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+        <p id="emptyMessage" class="empty-message" style="display:none;">No expenses yet. Add one!</p>
+      </div>
+
+    </section>
+
+    <!-- Add Expense Section -->
+    <section id="add" class="tab-section hidden">
+      <div class="card form-card">
+        <h2>Add New Expense</h2>
+        <form id="expenseForm">
+          <label for="amount">Amount (₹)</label>
+          <input type="number" id="amount" step="0.01" min="0" required placeholder="e.g. 250.00" />
+
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Books">Books</option>
+            <option value="Rent">Rent</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="description">Description</label>
+          <input type="text" id="description" required placeholder="e.g. Lunch with friends" />
+
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+
+          <button type="submit">Add Expense</button>
+          <p id="formMessage" class="form-message"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Cloud Computing Mini Project — Powered by Supabase</p>
+  </footer>
+
+  <!-- Supabase JS library (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
